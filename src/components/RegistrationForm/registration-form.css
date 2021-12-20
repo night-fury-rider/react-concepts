@@ -1,0 +1,18 @@
+.registration-form-container .row {
+  margin-top: 1rem;
+}
+
+.phone-number-container {
+  display: flex;
+  justify-content: left;
+  align-items: center;
+}
+
+.phone-number-container .phone-number {
+  margin-top: 0.5rem;
+  width: 90%;
+}
+
+.phone-number-container svg {
+  width: 50px !important;
+}
