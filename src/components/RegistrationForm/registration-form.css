@@ -20,3 +20,7 @@
 .registration-form-container .uv-header {
   margin-top: 1rem;
 }
+
+.registration-form-container .field-error {
+  border-color: var(--color-danger);
+}

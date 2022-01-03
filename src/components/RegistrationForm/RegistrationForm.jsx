@@ -1,3 +1,7 @@
+/* Note: If we decide to share this component to other codebase, make sure to do following changes
+1. registration-form.css -- Replace var(--color-danger) with actual color code.
+ */
+
 import React from 'react';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faPlusCircle, faTimesCircle } from '@fortawesome/free-solid-svg-icons'
@@ -24,12 +28,20 @@ const onSubmit = (formData, submitProps) => {
 };
 
 const validationSchema = Yup.object({
-  name: Yup.string().required(rData.name.required)
+  name: Yup.string().required(`${rData.name.label} ${rData.errors.required}`)
     .matches('^[a-zA-Z]+$', rData.name.alphabet),
-  age: Yup.number().required(rData.age.required)
+  age: Yup.number().required(`${rData.age.label} ${rData.errors.required}`)
     .min(rData.age.minValue, rData.age.minValueError + rData.age.minValue)
     .max(rData.age.maxValue, rData.age.maxValueError + rData.age.maxValue)
-    .integer(rData.age.integer)
+    .integer(rData.age.integer),
+  email: Yup.string().required(`${rData.email.label} ${rData.errors.required}`)
+    .email(rData.email.email),
+  userPassword: Yup.string().required(`${rData.password.label} ${rData.errors.required}`),
+  address: Yup.string().required(`${rData.address.label} ${rData.errors.required}`),
+  phoneNos: Yup.array().of(
+    Yup.number()
+  ).required(`${rData.phoneNos.label} ${rData.errors.required}`),
+  agreeCheck: Yup.string().required(`${rData.agreeCheck.label} ${rData.errors.required}`)
 });
 
 const RegistrationForm = () => {
@@ -65,46 +77,52 @@ const RegistrationForm = () => {
               </article>
               <div className="row uv-centered-container">
                 <div className="col-md-4">
-                  <Field type="text" id="name" name="name" className="form-control" />
+                  <Field type="text" id="name" name="name"
+                    className={"form-control " + (formik.errors.name && formik.touched.name ? 'field-error' : '')} />
 
-                  <label htmlFor="name" className="form-label">Name</label>
+                  <label htmlFor="name" className="form-label">{rData.name.label}</label>
                 </div>
                 <div className="col-md-4">
                   <Field type="number"
                     id="age"
                     name="age"
-                    className="form-control"
+                    className={"form-control " + (formik.errors.age && formik.touched.age ? 'field-error' : '')}
                     step="1" />
-                  <label htmlFor="age" className="form-label">Age</label>
+                  <label htmlFor="age" className="form-label">{rData.age.label}</label>
                 </div>
               </div>
 
               <div className="row uv-centered-container">
                 <div className="col-md-4">
 
-                  <input type="email" className="form-control" id="email" name="email" />
-                  <label htmlFor="email" className="form-label">Email</label>
+                  <Field type="text" id="email" name="email"
+                    className={"form-control " + (formik.errors.email && formik.touched.email ? 'field-error' : '')} />
+
+                  <label htmlFor="email" className="form-label">{rData.email.label}</label>
                 </div>
                 <div className="col-md-4">
 
-                  <input type="password" className="form-control" id="userPassword" name="userPassword" />
-                  <label htmlFor="userPassword" className="form-label">Password</label>
+                  <Field type="password" id="userPassword" name="userPassword"
+                    className={"form-control " + (formik.errors.userPassword && formik.touched.userPassword ? 'field-error' : '')} />
+                  <label htmlFor="userPassword" className="form-label">{rData.password.label}</label>
                 </div>
               </div>
 
               <div className="row uv-centered-container">
                 <div className="col-md-4">
 
-                  <textarea className="form-control" placeholder="Address" id="address" name="address"></textarea>
-                  <label htmlFor="address">Address</label>
+                  <Field as="textarea" id="address" name="address"
+                    className={"form-control " + (formik.errors.address && formik.touched.address ? 'field-error' : '')} />
+                  <label htmlFor="address">{rData.address.label}</label>
                 </div>
                 <div className="col-md-4">
+
                   {initialValues.phoneNos.map((obj, index) => (
                     <div key={index} className='phone-number-container'>
                       <Field type="number"
                         id={"phoneNos" + index}
                         name={"phoneNos" + index}
-                        className="form-control phone-number" />
+                        className={"form-control phone-number "} />
                       <FontAwesomeIcon icon={faTimesCircle} className="error row-delete" />
                       {index === initialValues.phoneNos.length - 1 &&
                         <FontAwesomeIcon icon={faPlusCircle} className='success row-add' />
@@ -112,16 +130,17 @@ const RegistrationForm = () => {
                     </div>
                   ))
                   }
-                  <label htmlFor={"phoneNos" + (initialValues.phoneNos.length - 1)}>Phone Numbers</label>
+                  <label htmlFor={"phoneNos" + (initialValues.phoneNos.length - 1)}>{rData.phoneNos.label}</label>
                 </div>
               </div>
 
               <div className="row uv-centered-container">
                 <div className="col-md-8">
                   <div className="form-check">
-                    <input className="form-check-input" type="checkbox" id="agreeCheck" name="agreeCheck" />
+                    <Field type="checkbox" id="agreeCheck" name="agreeCheck"
+                      className={"form-check-input " + (formik.errors.agreeCheck && formik.touched.agreeCheck ? 'field-error' : '')} />
                     <label className="form-check-label" htmlFor="agreeCheck">
-                      I agree
+                      {rData.agreeCheck.label}
                     </label>
                   </div>
                 </div>
@@ -130,7 +149,7 @@ const RegistrationForm = () => {
               <div className="row uv-centered-container">
                 <div className="col-8 uv-centered-container">
                   <button type="submit" className="btn btn-primary"
-                    disabled={!(formik.dirty && formik.isValid)}>Sign Up</button>
+                    disabled={!(formik.dirty && formik.isValid)}>{rData.submit.label}</button>
                 </div>
               </div>
             </form>
