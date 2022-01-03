@@ -16,3 +16,7 @@
 .phone-number-container svg {
   width: 50px !important;
 }
+
+.registration-form-container .uv-header {
+  margin-top: 1rem;
+}

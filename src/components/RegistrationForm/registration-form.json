@@ -1,0 +1,16 @@
+{
+  "title": "Registration Form",
+  "errorsTitle": "Invalid Form details",
+  "name": {
+    "required": "Name is a required field",
+    "alphabet": "Name must have only Alphabets"
+  },
+  "age": {
+    "required": "Age is a required field",
+    "minValue": 18,
+    "minValueError": "Age must be more than ",
+    "maxValue": 60,
+    "maxValueError": "Age must be less than ",
+    "integer": "Age must not be in decimal"
+  }
+}

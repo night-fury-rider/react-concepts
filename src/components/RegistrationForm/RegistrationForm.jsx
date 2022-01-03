@@ -1,13 +1,12 @@
-import './registration-form.css';
-
-
-import React, { useState } from 'react';
+import React from 'react';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faPlusCircle, faTimesCircle } from '@fortawesome/free-solid-svg-icons'
-import { ErrorMessage, Field, Formik } from 'formik';
+import { Field, Formik } from 'formik';
 import * as Yup from 'yup';
 
-import TextError from './TextError';
+import './registration-form.css';
+import rData from './registration-form.json';
+import UVToastWrapper from '../Core/UVToast/UVToastWrapper';
 
 const initialValues = {
   name: '',
@@ -19,24 +18,21 @@ const initialValues = {
   agreeCheck: ''
 };
 
-const savedValues = {
-
-};
-
 const onSubmit = (formData, submitProps) => {
   console.log('Form Data: ', formData);
   console.log('submitProps: ', submitProps);
 };
 
 const validationSchema = Yup.object({
-  name: Yup.string().required('Name is a required field bro'),
-  age: Yup.number().required('Age is a required field man')
-    .min(18, "Age must be more than 18")
-    .max(60, "Age must be less than 60")
+  name: Yup.string().required(rData.name.required)
+    .matches('^[a-zA-Z]+$', rData.name.alphabet),
+  age: Yup.number().required(rData.age.required)
+    .min(rData.age.minValue, rData.age.minValueError + rData.age.minValue)
+    .max(rData.age.maxValue, rData.age.maxValueError + rData.age.maxValue)
+    .integer(rData.age.integer)
 });
 
 const RegistrationForm = () => {
-  const [formData, setFormData] = useState('');
 
   return (
     <>
@@ -44,22 +40,41 @@ const RegistrationForm = () => {
         initialValues={initialValues}
         validationSchema={validationSchema}
         onSubmit={onSubmit}
+        validateOnChange={false}
+        validateOnBlur={true}
         validateOnMount>
 
         {formik => {
-          console.log('Formik Props: ', formik);
           return (
 
             < form className="g-3 registration-form-container" >
+
+              <article >
+                <header className='uv-header uv-centered-container'>
+                  <h1>{rData.title}</h1>
+                </header>
+              </article>
+
+              <article className="row uv-centered-container">
+                <UVToastWrapper
+                  title={rData.errorsTitle}
+                  width={"65%"}
+                  errors={formik.errors}
+                  touched={formik.touched}
+                />
+              </article>
               <div className="row uv-centered-container">
                 <div className="col-md-4">
                   <Field type="text" id="name" name="name" className="form-control" />
-                  <ErrorMessage name="name" component={TextError} />
+
                   <label htmlFor="name" className="form-label">Name</label>
                 </div>
                 <div className="col-md-4">
-                  <Field type="number" id="age" name="age" className="form-control" step="0.5" />
-                  <ErrorMessage name="age" component={TextError} />
+                  <Field type="number"
+                    id="age"
+                    name="age"
+                    className="form-control"
+                    step="1" />
                   <label htmlFor="age" className="form-label">Age</label>
                 </div>
               </div>
@@ -90,7 +105,6 @@ const RegistrationForm = () => {
                         id={"phoneNos" + index}
                         name={"phoneNos" + index}
                         className="form-control phone-number" />
-                      <ErrorMessage name={"name" + index} component={TextError} />
                       <FontAwesomeIcon icon={faTimesCircle} className="error row-delete" />
                       {index === initialValues.phoneNos.length - 1 &&
                         <FontAwesomeIcon icon={faPlusCircle} className='success row-add' />
@@ -120,7 +134,6 @@ const RegistrationForm = () => {
                 </div>
               </div>
             </form>
-
 
           )
         }

@@ -2,12 +2,18 @@
 
 This repository gives high level idea of Components of React Ecosystem
 
-## Current Technologies
+## Technologies Used
 
 - [React 17.0.2](https://reactjs.org/)
-- [Bootstrap 5.1.3](https://getbootstrap.com/)
+- [React Bootstrap 2.0.4](https://getbootstrap.com/)
 - [Formik 2.2.9](https://formik.org/)
 - [Yup 0.32.11](https://github.com/jquense/yup)
+- [Holder.js 2.9.9](http://holderjs.com/)
+
+## Components developed
+
+- Dynamic Form (with CRUD) created using API response and Formik.
+- Toast message displaying form error messages
 
 ## Available Scripts
 
