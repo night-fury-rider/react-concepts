@@ -5,7 +5,7 @@
 import React from 'react';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faPlusCircle, faTimesCircle } from '@fortawesome/free-solid-svg-icons'
-import { Field, Formik } from 'formik';
+import { Field, FieldArray, Formik } from 'formik';
 import * as Yup from 'yup';
 
 import './registration-form.css';
@@ -18,7 +18,7 @@ const initialValues = {
   email: '',
   password: '',
   address: '',
-  phoneNos: [1, 2],
+  phoneNos: [''],
   agreeCheck: ''
 };
 
@@ -39,9 +39,9 @@ const validationSchema = Yup.object({
   userPassword: Yup.string().required(`${rData.password.label} ${rData.errors.required}`),
   address: Yup.string().required(`${rData.address.label} ${rData.errors.required}`),
   phoneNos: Yup.array().of(
-    Yup.number()
+    Yup.number().required(`${rData.phoneNos.label} ${rData.errors.required}`)
   ).required(`${rData.phoneNos.label} ${rData.errors.required}`),
-  agreeCheck: Yup.string().required(`${rData.agreeCheck.label} ${rData.errors.required}`)
+  agreeCheck: Yup.string().required(`${rData.agreeCheck.errorMsg}`)
 });
 
 const RegistrationForm = () => {
@@ -117,19 +117,41 @@ const RegistrationForm = () => {
                 </div>
                 <div className="col-md-4">
 
-                  {initialValues.phoneNos.map((obj, index) => (
-                    <div key={index} className='phone-number-container'>
-                      <Field type="number"
-                        id={"phoneNos" + index}
-                        name={"phoneNos" + index}
-                        className={"form-control phone-number "} />
-                      <FontAwesomeIcon icon={faTimesCircle} className="error row-delete" />
-                      {index === initialValues.phoneNos.length - 1 &&
-                        <FontAwesomeIcon icon={faPlusCircle} className='success row-add' />
-                      }
-                    </div>
-                  ))
-                  }
+                  <FieldArray name="phoneNos">
+                    {fieldArrayProps => {
+                      console.log(fieldArrayProps);
+                      const { push, remove, form } = fieldArrayProps;
+                      const { values } = form;
+                      const { phoneNos } = values;
+                      return (
+                        <div>
+                          {
+                            phoneNos.map((phoneNo, index) => (
+                              <div key={index} className='phone-number-container'>
+                                <Field type="number"
+                                  name={`phoneNos[${index}]`}
+                                  className={"form-control phone-number " + (formik.errors.phoneNos && formik.errors.phoneNos[index] && formik.touched.phoneNos && formik.touched.phoneNos[index] ? 'field-error' : '')} />
+                                {phoneNos.length > 1 &&
+                                  <FontAwesomeIcon icon={faTimesCircle}
+                                    className="error row-delete cursorPointer"
+                                    onClick={() => remove(index)} />
+                                }
+
+                                {index < rData.phoneNos.limit - 1 && index === phoneNos.length - 1 &&
+                                  <FontAwesomeIcon icon={faPlusCircle}
+                                    className='success row-add cursorPointer'
+                                    onClick={() => push('')} />
+                                }
+                              </div>
+                            ))
+
+                          }
+                        </div>
+                      )
+                    }
+
+                    }
+                  </FieldArray>
                   <label htmlFor={"phoneNos" + (initialValues.phoneNos.length - 1)}>{rData.phoneNos.label}</label>
                 </div>
               </div>

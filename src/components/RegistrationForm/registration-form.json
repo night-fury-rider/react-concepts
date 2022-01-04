@@ -29,10 +29,12 @@
     "label": "Address"
   },
   "phoneNos": {
-    "label": "Phone Number"
+    "label": "Phone Number",
+    "limit": 2
   },
   "agreeCheck": {
-    "label": "I agree"
+    "label": "I agree",
+    "errorMsg": "Please accept the terms and conditions."
   },
   "submit": {
     "label": "Sign Up"

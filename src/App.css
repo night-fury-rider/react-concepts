@@ -80,6 +80,10 @@ html {
   display: none !important;
 }
 
+.cursorPointer {
+  cursor: pointer;
+}
+
 code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, "Courier New",
     monospace;
