@@ -1,0 +1,43 @@
+{
+  "header": {
+    "title": "UV React Concepts",
+    "website": "http://www.yuvrajpatil.com",
+    "links": [
+      {
+        "src": "https://github.com/yuvi1422.png",
+        "href": "https://github.com/yuvi1422",
+        "alt": "Github Repo"
+      }
+    ]
+  },
+  "sidebar": {
+    "links": [
+      {
+        "title": "Dashboard",
+        "href": "#dashboard"
+      },
+      {
+        "title": "Formik Form",
+        "href": "#forms"
+      }
+    ]
+  },
+  "table": {
+    "columns": ["Sr", "Name", "Runs", "Wickets"],
+    "rows": [
+      {
+        "name": "Sachin Tendulkar",
+        "runs": 18000,
+        "wickets": 150
+      },
+      {
+        "name": "Sourabh Ganguly",
+        "runs": 11000,
+        "wickets": 100
+      }
+    ]
+  },
+  "footer": {
+    "message": "© 2022 Yuvraj Patil All rights reserved."
+  }
+}
