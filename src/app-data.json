@@ -13,16 +13,27 @@
   "sidebar": {
     "links": [
       {
-        "title": "Dashboard",
-        "href": "#dashboard"
+        "title": "Debounce & Throttling",
+        "href": "debounce_throttling",
+        "icon": "Home"
+      },
+      {
+        "title": "Grid",
+        "href": "grid",
+        "icon": "Users"
       },
       {
         "title": "Formik Form",
-        "href": "#forms"
+        "href": "form"
+      },
+      {
+        "title": "useRef Hook",
+        "href": "use_ref"
       }
     ]
   },
   "table": {
+    "title": "UV Table",
     "columns": ["Sr", "Name", "Runs", "Wickets"],
     "rows": [
       {
@@ -39,5 +50,10 @@
   },
   "footer": {
     "message": "© 2022 Yuvraj Patil All rights reserved."
+  },
+  "timer": {
+    "title": "UV Timer with useRef",
+    "start": "Start",
+    "pause": "Pause"
   }
 }

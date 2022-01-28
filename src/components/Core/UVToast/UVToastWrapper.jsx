@@ -1,11 +1,11 @@
 import React, { useEffect, useState } from 'react';
 
-import ErrorList from '../ErrorList/ErrorList';
+import ErrorList from '../../../modules/Errors/ErrorList';
 import UVToast from './UVToast';
 
 const UVToastWrapper = (props) => {
 
-  const [registrationErrors, setRegistrationErrors] = useState([])
+  const [registrationErrors, setRegistrationErrors] = useState([]);
 
   useEffect(() => {
     let tmpErrors = [];

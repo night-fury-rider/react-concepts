@@ -119,7 +119,6 @@ const RegistrationForm = () => {
 
                   <FieldArray name="phoneNos">
                     {fieldArrayProps => {
-                      console.log(fieldArrayProps);
                       const { push, remove, form } = fieldArrayProps;
                       const { values } = form;
                       const { phoneNos } = values;

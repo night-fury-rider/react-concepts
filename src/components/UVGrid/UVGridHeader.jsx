@@ -1,4 +1,3 @@
-import { Printer, RefreshCw, Save } from "react-feather";
 import './UVGrid.css';
 import iconData from '../../modules/Icons/icons.json';
 
@@ -8,9 +7,7 @@ const UVGridHeader = props => {
       <h1 className="h2">{props.title}</h1>
       <div className="btn-toolbar mb-2 mb-md-0">
         <div className="btn-group me-2">
-          <RefreshCw {...iconData.iconConfig} />
-          <Printer {...iconData.iconConfig} />
-          <Save {...iconData.iconConfig} />
+
         </div>
       </div>
     </div>

@@ -1,4 +1,3 @@
-import { GitHub } from 'react-feather';
 import './UVHeader.css';
 
 const UVHeader = props => {
@@ -24,7 +23,7 @@ const UVHeader = props => {
                   rel='noreferrer'
                   className="uv-centered-container"
                   alt={linkObj.alt} >
-                  <GitHub />
+
                 </a>
               ))}
             </div>

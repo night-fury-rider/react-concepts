@@ -5,15 +5,41 @@ This repository gives high level idea of Components of React Ecosystem
 ## Technologies Used
 
 - [React 17.0.2](https://reactjs.org/)
+- [React Router 6](https://reactrouter.com/)
 - [React Bootstrap 2.0.4](https://getbootstrap.com/)
 - [Formik 2.2.9](https://formik.org/)
 - [Yup 0.32.11](https://github.com/jquense/yup)
 - [Holder.js 2.9.9](http://holderjs.com/)
 
-## Components developed
+## Concepts covered so far
 
-- Dynamic Form (with CRUD) created using API response and Formik.
+- Routing using React Router
+- Basic Form using Formik Library
 - Toast message displaying form error messages
+- ErrorBoundary
+- Custom Hooks for debouncing and throttling
+- useRef Hook
+- Core layout of application.
+
+## Concepts to be covered
+
+- HOC
+- Context API
+- Axios
+- Socket
+- Class Component with all methods
+- Pure component
+- Controlled Component
+- Uncontrolled component
+- Strict Mode
+- Throtlling
+- Debouncing
+- Long list virtualization using rect-window
+- useMemo
+- useCallback
+- memo
+- react-query
+- Dynamic Form (with CRUD) created using API response and Formik.
 
 ## Available Scripts
 

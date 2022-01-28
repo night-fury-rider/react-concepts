@@ -1,5 +1,6 @@
-import { Home, Users } from "react-feather";
+import { Link } from 'react-router-dom';
 import { getErrorInString } from "../../../modules/Errors/ErrorService";
+import React from 'react';
 
 const UVSidebar = props => {
 
@@ -16,10 +17,8 @@ const UVSidebar = props => {
         <ul className="nav flex-column h-100">
           {props.links.map((linkObj, linkIndex) => (
             <li className="nav-item" key={linkIndex}>
-              <a className="nav-link active" href="#home">
-                <Home size={16} />
-                <span className="sidebar-link-title">{linkObj.title}</span>
-              </a>
+
+              <Link to={linkObj.href} className='nav-link'>{linkObj.title} </Link>
             </li>
           ))}
         </ul>

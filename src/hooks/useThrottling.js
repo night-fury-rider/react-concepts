@@ -6,10 +6,9 @@ const useThrottling = (callback, limit) => {
     let arg = arguments;
 
     if (isEnabled) {
-      callback.apply(context, arg);
       isEnabled = false;
-
       setTimeout(() => {
+        callback.apply(context, arg);
         isEnabled = true;
       }, limit);
     }
