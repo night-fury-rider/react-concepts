@@ -18,6 +18,11 @@
         "icon": "Home"
       },
       {
+        "title": "Custom Hook - Counter",
+        "href": "use_counter",
+        "icon": "Counter"
+      },
+      {
         "title": "Grid",
         "href": "grid",
         "icon": "Users"
@@ -55,5 +60,14 @@
     "title": "UV Timer with useRef",
     "start": "Start",
     "pause": "Pause"
+  },
+  "centralContent1": {
+    "throtlling": "Update Base Data using Throtlling",
+    "debouncing": "Update Base Data using Debouncing"
+  },
+  "centralContent2": {
+    "increment": "Increment",
+    "decrement": "Decrement",
+    "reset": "Reset"
   }
 }

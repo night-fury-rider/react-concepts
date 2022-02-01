@@ -18,28 +18,27 @@ This repository gives high level idea of Components of React Ecosystem
 - Toast message displaying form error messages
 - ErrorBoundary
 - Custom Hooks for debouncing and throttling
+- Custom Hook for counter
 - useRef Hook
 - Core layout of application.
+- Strict Mode
 
 ## Concepts to be covered
 
 - HOC
+- Render Props
 - Context API
 - Axios
 - Socket
-- Class Component with all methods
-- Pure component
-- Controlled Component
-- Uncontrolled component
-- Strict Mode
-- Throtlling
-- Debouncing
-- Long list virtualization using rect-window
+- Debouncing for search
 - useMemo
 - useCallback
 - memo
+- Class Component with all methods
+- Pure component
 - react-query
 - Dynamic Form (with CRUD) created using API response and Formik.
+- Long list virtualization using rect-window
 
 ## Available Scripts
 

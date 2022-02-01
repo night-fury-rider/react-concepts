@@ -9,9 +9,10 @@ import './Dashboard.css';
 
 import appData from '../../app-data.json';
 
-import CentralContent from '../../components/Core/CentralContent/CentralContent';
+import CentralContent1 from '../../components/Core/CentralContent/CentralContent1';
 import RegistrationForm from '../../components/RegistrationForm/RegistrationForm';
 import UVTimer from '../../components/UVTimer/UVTimer';
+import CentralContent2 from '../../components/Core/CentralContent/CentralContent2';
 
 const Dashboard = props => {
 
@@ -26,12 +27,14 @@ const Dashboard = props => {
             <Routes>
               <Route path="*" element={<Navigate to={appData.sidebar.links[0].href} />}></Route>
               <Route path={appData.sidebar.links[0].href}
-                element={<CentralContent title={appData.sidebar.links[0].title} />}></Route>
+                element={<CentralContent1 title={appData.sidebar.links[0].title} />}></Route>
               <Route path={appData.sidebar.links[1].href}
-                element={<UVGrid columns={appData.table.columns} rows={appData.table.rows} title={appData.table.title} />}></Route>
+                element={<CentralContent2 title={appData.sidebar.links[1].title} />}></Route>
               <Route path={appData.sidebar.links[2].href}
-                element={<RegistrationForm />}></Route>
+                element={<UVGrid columns={appData.table.columns} rows={appData.table.rows} title={appData.table.title} />}></Route>
               <Route path={appData.sidebar.links[3].href}
+                element={<RegistrationForm />}></Route>
+              <Route path={appData.sidebar.links[4].href}
                 element={<UVTimer initialValue={10}
                   title={appData.timer.title}
                   delay={2000}
