@@ -25,6 +25,7 @@ This repository gives high level idea of Components of React Ecosystem
 
 ## Concepts to be covered
 
+- Render Props
 - HOC
 - Render Props
 - Context API

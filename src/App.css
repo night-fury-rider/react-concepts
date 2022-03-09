@@ -9,26 +9,30 @@
 }
 
 /* Color clases for themes started */
-.uv-background-color-primary {
+.uv-bg-primary {
   background-color: var(--color-primary);
 }
-.uv-background-color-success {
+.uv-bg-success {
   background-color: var(--color-success);
 }
-.uv-background-color-info {
+.uv-bg-info {
   background-color: var(--color-info);
 }
-.uv-background-color-warning {
+.uv-bg-warning {
   background-color: var(--color-warning);
 }
-.uv-background-color-danger {
+.uv-bg-danger {
   background-color: var(--color-danger);
 }
-.uv-background-color-inverse {
+.uv-bg-inverse {
   background-color: var(--color-inverse);
 }
-.uv-background-color-faded {
+.uv-bg-faded {
   background-color: var(--color-faded);
+}
+
+.uv-bg-lavender {
+  background-color: lavender;
 }
 
 .uv-color-primary {
@@ -56,6 +60,10 @@
 
 html {
   scroll-behavior: smooth;
+}
+
+body {
+  background-color: lavender;
 }
 
 .uv-font-medium {
@@ -119,6 +127,22 @@ code {
 }
 .error {
   color: red;
+}
+
+.rem-top-1 {
+  margin-top: 1rem;
+}
+
+.rem-top-2 {
+  margin-top: 2rem;
+}
+
+.rem-bottom-1 {
+  margin-bottom: 1rem;
+}
+
+.rem-bottom-2 {
+  margin-bottom: 2rem;
 }
 
 @media only screen and (min-width: 1200px) {

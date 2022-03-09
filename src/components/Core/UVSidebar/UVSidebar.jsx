@@ -9,7 +9,7 @@ const UVSidebar = props => {
   }
 
   return (
-    <nav id="sidebarMenu" className="col-md-3 col-lg-2 d-md-block bg-light sidebar collapse">
+    <nav id="sidebarMenu" className="col-md-3 col-lg-2 d-md-block sidebar collapse">
       <div className="position-sticky pt-3">
         <div className="d-flex">
           <input className="form-control me-2" type="search" placeholder="Search" aria-label="Search" />
@@ -17,8 +17,7 @@ const UVSidebar = props => {
         <ul className="nav flex-column h-100">
           {props.links.map((linkObj, linkIndex) => (
             <li className="nav-item" key={linkIndex}>
-
-              <Link to={linkObj.href} className='nav-link'>{linkObj.title} </Link>
+              <Link to={process.env.PUBLIC_URL + '/' + linkObj.href} className='nav-link'>{linkObj.title} </Link>
             </li>
           ))}
         </ul>
