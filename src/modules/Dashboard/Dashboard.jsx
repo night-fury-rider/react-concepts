@@ -3,7 +3,6 @@ import { Route, Routes, Navigate } from 'react-router-dom';
 
 import UVSidebar from '../../components/Core/UVSidebar/UVSidebar';
 import UVGrid from '../../components/UVGrid/UVGrid';
-import UVFooter from '../../components/Core/UVFooter/UVFooter';
 
 import './Dashboard.css';
 
@@ -46,7 +45,7 @@ const Dashboard = props => {
         </div>
       </div>
 
-      <UVFooter message={appData.footer.message} />
+
     </div>
   )
 };
