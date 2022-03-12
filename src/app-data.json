@@ -15,25 +15,27 @@
       {
         "title": "Debounce & Throttling",
         "href": "debounce_throttling",
-        "icon": "Home"
+        "icon": "faDesktop"
       },
       {
         "title": "Custom Hook - Counter",
         "href": "use_counter",
-        "icon": "Counter"
+        "icon": "faAnchor"
       },
       {
         "title": "Grid",
         "href": "grid",
-        "icon": "Users"
+        "icon": "faTable"
       },
       {
         "title": "Formik Form",
-        "href": "form"
+        "href": "form",
+        "icon": "faList"
       },
       {
         "title": "useRef Hook",
-        "href": "use_ref"
+        "href": "use_ref",
+        "icon": "faBox"
       }
     ]
   },

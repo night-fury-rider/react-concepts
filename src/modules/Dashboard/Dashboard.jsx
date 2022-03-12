@@ -22,7 +22,7 @@ const Dashboard = props => {
         <div className="row">
           <UVSidebar links={appData.sidebar.links} />
 
-          <main className="col-md-9 ms-sm-auto col-lg-10 px-md-4">
+          <main className="col-sm-9 col-md-8">
             <Routes>
               <Route path="*" element={<Navigate to={process.env.PUBLIC_URL + '/' + appData.sidebar.links[0].href} />}></Route>
               <Route path={process.env.PUBLIC_URL + '/' + appData.sidebar.links[0].href}
